@@ -43,7 +43,7 @@ net.createServer(function (sock) {
         /**
          * Write back message
          */
-        sock.write('thank you!');
+        sock.write('AT+HEXMSG=0A303132');
     });
 
     /**
