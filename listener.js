@@ -33,6 +33,7 @@ net.createServer(function (sock) {
         console.log(`${now}\t${sock.remoteAddress}: ${data}\n`);
 
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
         console.log(data);
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
@@ -42,7 +43,7 @@ net.createServer(function (sock) {
         /**
          * Write back message
          */
-        // sock.write('thank you!');
+        sock.write('thank you!');
     });
 
     /**
