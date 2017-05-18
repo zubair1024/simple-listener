@@ -10,7 +10,9 @@ var client = new net.Socket();
 client.connect(PORT, IP, function () {
     console.log('Connected');
     // client.write('Hello');
-    client.write('1970x4121"Msg1"3004340614427100x00000x42700x0D0x300x310x32');
+    // client.write('1970x4121"Msg1"3004340614427100x00000x42700x0D0x300x310x32');
+    var buff = new Buffer("01001F4115000000013330303033343031303132333435300000420410313233", "hex");
+    client.write(buff);
 });
 
 client.on('data', function (data) {
