@@ -27,7 +27,7 @@ net.createServer(function (sock) {
     sock.on('data', function (data) {
 
         let now = (new Date()).toISOString(),
-            incomingMsg = data.toString();
+            incomingMsg = data.toString('hex');
 
         //logging the incoming traffic
         console.log(`${now}\t${sock.remoteAddress}: ${data}\n`);
@@ -35,6 +35,7 @@ net.createServer(function (sock) {
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
         console.log(data);
+        console.log(incomingMsg);
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
         // writerStream.write(`${now}\t${sock.remoteAddress}: ${data}\n`, 'UTF8');
