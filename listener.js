@@ -10,7 +10,7 @@ var net = require('net'),
  * Host IP and Port
  */
 var HOST = '138.68.78.117',
-    PORT = 3001;
+    PORT = 3002;
 
 
 /**
