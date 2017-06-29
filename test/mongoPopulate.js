@@ -1,6 +1,6 @@
 let mongoose = require('mongoose'),
-    SensorMessageEvent = require('../db/model/SensorMessageEvent'),
-    Asset = require('../db/model/Asset');
+    SensorMessageEvent = require('../../db/model/SensorMessageEvent'),
+    Asset = require('../../db/model/Asset');
 
 //Check the connection and return a promise 
 var conn = new Promise(function (resolve, reject) {
