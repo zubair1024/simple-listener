@@ -9,8 +9,8 @@ var net = require('net'),
 /**
  * Host IP and Port
  */
-var HOST = '139.59.69.229',
-    PORT = 3002;
+var HOST = 'jgroute.ddns.net',
+    PORT = 8081;
 
 
 /**
@@ -56,7 +56,7 @@ net.createServer(function (sock) {
 
 
 
-}).listen(PORT, HOST);
+}).listen(PORT);
 
 
 console.log('Server listening on ' + HOST + ':' + PORT + ' for Falcom');
