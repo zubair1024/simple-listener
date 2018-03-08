@@ -44,8 +44,6 @@ net.createServer(function (sock) {
         if (msg && msg.length) {
             //get address
             let deviceAddress = sock.remoteAddress + ":" + sock.remotePort;
-            //persist the socket
-            socketList[deviceAddress] = sock;
 
             //check start of the message 00000000 (4 bytes)
             if (parseInt(msg.slice(0, 4).toString("hex"), 16) === 0) {
