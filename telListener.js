@@ -10,7 +10,7 @@ var net = require('net'),
  * Host IP and Port
  */
 var HOST = 'jgroute.ddns.net',
-    PORT = 8081;
+    PORT = 5101;
 
 
 /**
