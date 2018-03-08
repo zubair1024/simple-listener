@@ -24,26 +24,24 @@ net.createServer(function (sock) {
     /**
      * On receiving data through the TCP channel
      */
-    sock.on('data', function (data) {
+    sock.on('data', function (msg) {
 
         let now = (new Date()).toISOString(),
-            incomingMsg = data.toString('hex');
+            incomingMsg = msg.toString('hex');
 
         //logging the incoming traffic
-        console.log(`${now}\t${sock.remoteAddress}: ${data}\n`);
+        console.log(`${now}\t${sock.remoteAddress}: ${msg}\n`);
 
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-        console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
-        console.log(data);
-        console.log(incomingMsg);
+        console.log(msg);
         console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 
 
         //logging the incoming traffic
-        console.log(`${sock.remoteAddress}: ${data.toString("hex")}\n`);
+        console.log(`${sock.remoteAddress}: ${msg.toString("hex")}\n`);
 
         //if data is present then parse
-        if (data && data.length) {
+        if (msg && msg.length) {
             //get address
             let deviceAddress = sock.remoteAddress + ":" + sock.remotePort;
             //persist the socket
@@ -71,6 +69,7 @@ net.createServer(function (sock) {
                     //write response as ACK
                     sock.write(Buffer.from(chucksLengthHex));
 
+                    console.log('Teltonika Message:');
                     console.log(msg);
 
 
@@ -83,21 +82,12 @@ net.createServer(function (sock) {
         } else {
             console.log("Teltonika: Invalid message length");
         }
-
-
-
-
-
-        /**
-         * Write back message
-         */
-        sock.write(Buffer.from('01', 'hex'));
     });
 
     /**
      * Socket Termination Listener
      */
-    sock.on('close', function (data) {
+    sock.on('close', function (msg) {
         console.log('CLOSED: ' + sock.remoteAddress + ' ' + sock.remotePort);
     });
 
