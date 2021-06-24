@@ -2,11 +2,12 @@
   "name": "simple-tcp-listener",
   "version": "1.0.0",
   "description": "",
-  "main": "listener.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod:start": "NODE_ENV=production pm2 start index.js --name tcp-listener --merge-logs --log-date-format=\"YYYY-MM-DD HH:mm\""
   },
-  "author": "",
+  "author": "Zubair Ahmed",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0"
